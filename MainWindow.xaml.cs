@@ -25,9 +25,6 @@ namespace CoffeeApplication
             InitializeComponent();
         }
 
-        private void BUttonAddCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            btnAddCustomer.Content = "Customer added";
-        }
+
     }
 }
