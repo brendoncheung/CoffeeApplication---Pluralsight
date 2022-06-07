@@ -3,28 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CoffeeApplication"
+        xmlns:local="clr-namespace:CoffeeApplication" 
+        xmlns:controls="clr-namespace:CoffeeApplication.Controls" 
+        xmlns:view="clr-namespace:CoffeeApplication.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontSize="20">
-   
+        Title="MainWindow" 
+        d:DesignHeight="600" d:DesignWidth="700"
+        Height="450" Width="800" 
+        FontSize="20">
+
     <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
+
         <!--Main Menu-->
         <Menu FontSize="20">
-            <MenuItem Header="_View"/>
-            <MenuItem Header="_Customer"/>
-            <MenuItem Header="_Product"/>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Customer"/>
+                <MenuItem Header="_Product"/>
+            </MenuItem>
         </Menu>
+        <!-- Header -->
+        <controls:HeaderControl Grid.Row="1"/>
+        <view:CustomersView Grid.Row="2"/>
+
+
+        <StatusBar Grid.Row="3">
+            <StatusBarItem FontSize="20" Content="(c) Wired Brain Coffee"/>
+        </StatusBar>
 
     </Grid>
 
