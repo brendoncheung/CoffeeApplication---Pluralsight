@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CoffeeApplication.Data;
+using CoffeeApplication.ViewModel;
 
 namespace CoffeeApplication.View
 {
@@ -20,9 +22,20 @@ namespace CoffeeApplication.View
     /// </summary>
     public partial class CustomersView : UserControl
     {
+        private CustomersViewModel _viewModel;
+
         public CustomersView()
         {
             InitializeComponent();
+
+            _viewModel = new CustomersViewModel(new CustomerDataProvider());
+            DataContext = _viewModel;
+            Loaded += CustomersView_Loaded;
+        }
+
+        public void CustomersView_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ButtomMoveNavigation_Click(object sender, RoutedEventArgs e)

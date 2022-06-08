@@ -12,7 +12,7 @@
         Height="450" Width="800" 
         FontSize="20">
 
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="True" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
