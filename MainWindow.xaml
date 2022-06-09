@@ -6,11 +6,21 @@
         xmlns:local="clr-namespace:CoffeeApplication" 
         xmlns:controls="clr-namespace:CoffeeApplication.Controls" 
         xmlns:view="clr-namespace:CoffeeApplication.View"
+        xmlns:viewModel="clr-namespace:CoffeeApplication.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" 
         d:DesignHeight="600" d:DesignWidth="700"
         Height="450" Width="800" 
         FontSize="20">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}">
+            <view:CustomersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductViewModel}">
+            <view:ProductView/>
+        </DataTemplate>
+    </Window.Resources>
 
     <Grid ShowGridLines="True" >
         <Grid.RowDefinitions>
@@ -23,13 +33,20 @@
         <!--Main Menu-->
         <Menu FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customer"/>
-                <MenuItem Header="_Product"/>
+                <MenuItem Header="_Customer"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding CustomerViewModel}"/>
+                <MenuItem Header="_Product"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding ProductViewModel}"/>
             </MenuItem>
         </Menu>
         <!-- Header -->
         <controls:HeaderControl Grid.Row="1"/>
-        <view:CustomersView Grid.Row="2"/>
+        
+        <!-- Customer detail -->
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}">
+        </ContentControl>
 
 
         <StatusBar Grid.Row="3" Background="{StaticResource HeaderBackgroundBrush}">

@@ -30,9 +30,6 @@ namespace CoffeeApplication.ViewModel
             DeleteCommand = new DelegateCommand(Delete, CanDelete);
 
         }
-
-
-
         public CustomerItemViewModel? SelectedCustomer { 
             get => _selectedCustomer;
             set
@@ -54,7 +51,7 @@ namespace CoffeeApplication.ViewModel
             }
         }
 
-        public async Task LoadAsync()
+        public async override Task LoadAsync()
         {
             if (Customers.Any())
             {

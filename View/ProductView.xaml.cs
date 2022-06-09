@@ -12,17 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CoffeeApplication.Data;
-using CoffeeApplication.ViewModel;
 
 namespace CoffeeApplication.View
 {
     /// <summary>
-    /// Interaction logic for CustomersView.xaml
+    /// Interaction logic for ProductView.xaml
     /// </summary>
-    public partial class CustomersView : UserControl
+    public partial class ProductView : UserControl
     {
-        public CustomersView()
+        public ProductView()
         {
             InitializeComponent();
         }
