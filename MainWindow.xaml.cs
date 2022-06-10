@@ -22,12 +22,10 @@ namespace CoffeeApplication
     {
         private readonly MainViewModel _viewModel;
 
-        public MainWindow()
+        public MainWindow(MainViewModel mainWindow)
         {
             InitializeComponent();
-            _viewModel = new MainViewModel(
-                new CustomersViewModel(new CustomerDataProvider()),
-                new ProductViewModel());
+            _viewModel = mainWindow;
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
         }
